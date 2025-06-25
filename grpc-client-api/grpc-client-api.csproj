@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 		<Folder Include="Protos\" />
-		<Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
+		<Protobuf Include="Protos\hello.proto" GrpcServices="Client" />
 	</ItemGroup>
 
 </Project>

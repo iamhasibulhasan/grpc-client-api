@@ -1,3 +1,4 @@
+using grpc_client_api.GrpcClientFactory;
 using grpc_client_api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,13 +14,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 // Register the gRPC client with the address from configuration
-builder.Services.AddSingleton<GrpcGreeterClient>(provider =>
-{
-    var configuration = provider.GetRequiredService<IConfiguration>();
-    var serverAddress = configuration["GrpcServer"];
+builder.Services.AddSingleton<IGrpcClientFactory, GrpcClientFactory>();
 
-    return new GrpcGreeterClient(configuration);
-});
+builder.Services.AddScoped<HelloService>();
 
 var app = builder.Build();
 
