@@ -26,4 +26,11 @@ public class HelloService
         var response = await service.SayTestAsync(new Empty());
         return response;
     }
+
+    public async Task<List<CreateList>> GetList()
+    {
+        var service = _grpcClientFactory.CreateList();
+        var response = await service.ShowListAsync(new Empty());
+        return response.List.ToList(); // Access the 'List' property and convert it to a List<CreateList>
+    }
 }

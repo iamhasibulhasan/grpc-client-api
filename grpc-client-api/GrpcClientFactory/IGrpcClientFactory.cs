@@ -6,6 +6,7 @@ namespace grpc_client_api.GrpcClientFactory
     {
         Hello.HelloClient CreateHello();
         Hello.HelloClient CreateTest();
+        Hello.HelloClient CreateList();
 
     }
 }
